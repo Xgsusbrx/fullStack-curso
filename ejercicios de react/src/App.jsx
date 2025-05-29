@@ -46,6 +46,7 @@ const App = () => {
 
 
 
+
   return (
     <div>
 
@@ -64,13 +65,11 @@ const Course = ({ courses }) => {
   return (
     
     <div>
-      {courses.map((date) => (
-        console.log("estos son los datos enviados", date.name, date.parts.exercises),
-        <h4 key= {date.id}> 
-        <p>{date.name}</p> {date.parts.exercises}
-        Total of {} exercises</h4>
-      ))}
-      
+      <p>
+        {courses.map((date) => 
+      {date.name})}
+      </p>
+    
     </div>
     
   );
