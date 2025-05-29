@@ -44,43 +44,34 @@ const App = () => {
     },
   ];
 
-
-
-
   return (
     <div>
-
-<h1> Web development curriculum</h1>
-
+      <h1>Web development curriculum</h1>
       <Course courses={courses} />
-      
-      
     </div>
   );
 };
-
 
 const Course = ({ courses }) => {
- 
-  return (
-    
-    <div>
-      <p>
-        {courses.map((date) => 
-      {date.name})}
-      </p>
-    
-    </div>
-    
-  );
-  
-};
-
-const Header = ({ courses }) => {
-
   return (
     <div>
-    
+      {courses.map((course) => (
+        <div key={course.id}>
+          <h2>{course.name}</h2>
+          {course.parts.map((part) => (
+            <p key={part.id}>
+              {part.name} — {part.exercises} exercises
+            </p>
+          ))}
+          <p>
+            <strong>
+              Total of{" "}
+              {course.parts.reduce((sum, part) => sum + part.exercises, 0)}{" "}
+              exercises
+            </strong>
+          </p>
+        </div>
+      ))}
     </div>
   );
 };
